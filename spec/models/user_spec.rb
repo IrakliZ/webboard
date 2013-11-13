@@ -11,13 +11,17 @@ describe User do
   it { should be_valid }
 
   describe "when name is missing" do
-    before { @user = User.new(name: " ", email: "user@webboard.com")}
+    before { @user.name = " "}
     it { should_not be_valid }
   end
 
   describe "when email is missing" do
-  	before { @user = User.new(name: "user", email: " ")}    
+  	before { @user.email = " "}
   	it { should_not be_valid }
   end
 
+  describe "when name is too long" do
+  	before { @user.name = "a" * 41}
+  	it { should_not be_valid }
+  end
 end
