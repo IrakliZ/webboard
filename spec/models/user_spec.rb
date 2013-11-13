@@ -46,4 +46,9 @@ describe User do
   	end
   end
 
+  describe "when email is already used" do
+  	before { duplicate = User.new(name: "user2", email: "user@webboard.com").save }
+  	it { should_not be_valid }
+  end
+
 end
