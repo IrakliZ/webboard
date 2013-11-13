@@ -1,4 +1,7 @@
 Webboard::Application.routes.draw do
+  get "users/new"
+  get "users/index"
+  get "users/edit"
   get "test/test"
   root to: 'test#test'
   # The priority is based upon order of creation: first created -> highest priority.
