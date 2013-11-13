@@ -1,12 +1,17 @@
 require 'spec_helper'
 
 describe User do
-  before { @user = User.new(name: "user", email: "user@webboard.com") }
+  before { @user = User.new(name: "user", email: "user@webboard.com",
+  							password: "secretpass", password_confirmation: "secretpass") }
 
   subject { @user }
 
   it { should respond_to(:name) }
   it { should respond_to(:email) }
+  it { should respond_to(:password_digest) }
+  it { should respond_to(:password) }
+  it { should respond_to(:password_confirmation) }
+  it { should respond_to(:authenticate) }
 
   it { should be_valid }
 
@@ -47,8 +52,43 @@ describe User do
   end
 
   describe "when email is already used" do
-  	before { duplicate = User.new(name: "user2", email: "USER@webboard.com").save }
+  	before do
+  		duplicate = @user.dup
+  		duplicate.email = @user.email.upcase
+  		duplicate.save
+  	end
   	it { should_not be_valid }
+  end
+
+  describe "when password is missing" do
+    before do
+    	@user.password = " "
+    	@user.password_confirmation = " "
+    end
+    it { should_not be_valid }
+  end
+
+  describe "when password is too short" do
+    before { @user.password = "a" * 7 }
+    it { should_not be_valid }
+  end
+
+  describe "when password and confirmation don't match" do
+    before { @user.password_confirmation = "different" }
+    it { should_not be_valid }
+  end
+
+  describe "behaviour of authentication" do
+    before { @user.save }
+    let(:valid_user) { User.find_by(email: @user.email) }
+
+    describe "with valid password" do
+      it { should eq valid_user.authenticate(@user.password) }
+    end
+
+    describe "with invalid password" do
+      it { should_not eq valid_user.authenticate("wrong_password")}
+    end
   end
 
 end
