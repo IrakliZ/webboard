@@ -1,1 +1,143 @@
 @import "bootstrap";
+
+//needed for not being behind bootstrap's navbar
+body {
+    padding-top: 65px;
+    background-color: #bbb;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  text-align: center;
+}
+
+.panel {
+	margin-top: 20px;
+  // background-color: rgba(50, 50, 50, 0.95);
+  box-shadow: 0 0 20px 0px #333;
+  border-color: #aaa;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.signup-form {
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+
+#form-name {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#form-email {
+	margin-bottom: -1px;
+	border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+#form-pass {
+	margin-bottom: -1px;
+	border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+#form-confirm {
+	border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-control:-moz-placeholder {
+  color: #777;
+}
+
+.form-control::-moz-placeholder {
+  color: #777;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #777;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #777;
+}
+
+.new_user .form-control {
+	border-color: #aaa;
+	background-color: #eee;
+}
+
+.new_user .form-control:focus {
+	z-index: 2;
+	border-color: #66afe9;
+	background-color: #f7f7f7;
+}
+
+.signup-form h1 {
+	margin-bottom: 25px;
+	font-weight: bold;
+	color: #777;
+}
+
+.new_user .form-control {
+  position: relative;
+  font-size: 17px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+.new_user .field_with_errors .form-control{
+  border-color: #b75b59;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.new_user .field_with_errors .form-control:focus{
+  border-color: #953b39;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 15px #d59392;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 15px #d59392;
+}

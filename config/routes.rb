@@ -1,9 +1,10 @@
 Webboard::Application.routes.draw do
-  get "users/new"
-  get "users/index"
-  get "users/edit"
+  get "static_pages/home"
+  get "static_pages/help"
+  resources :users
   get "test/test"
   root to: 'test#test'
+  match '/signup',  to: 'users#new',            via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
