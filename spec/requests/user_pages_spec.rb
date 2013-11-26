@@ -36,4 +36,39 @@ describe "User pages" do
       end
     end
   end
+
+  describe "edit" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      sign_in user
+      visit edit_user_path(user)
+    end
+
+    describe "page" do
+      it { should have_title('User Settings') }
+      it { should have_button('Update') }
+    end
+
+    describe "with invalid information" do
+      before { click_button 'Update' }
+      it { should have_content('error') }
+    end
+
+    describe "with valid information" do
+      let(:updated_name) { "Updated User" }
+      let(:updated_email) { "updated@webboard.com" }
+      before do
+        fill_in "Name",         with: updated_name
+        fill_in "Email",        with: updated_email
+        fill_in "Password",     with: user.password
+        fill_in "Confirmation", with: user.password
+        click_button 'Update'
+      end
+      it { should have_title(updated_name) }
+      it { should have_link('Sign out', href: signout_path) }
+      specify { expect(user.reload.name).to eq updated_name }
+      specify { expect(user.reload.email).to eq updated_email }
+    end
+  end
+
 end
