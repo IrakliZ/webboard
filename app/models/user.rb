@@ -9,5 +9,11 @@ class User < ActiveRecord::Base
 	validates :password, length: { minimum: 8 }
 
 	has_secure_password
+	def self.authenticate (login, pass)
+		u=find(:first, :conditions=> ["login = ?", login])
+		return nil if u.nil? 
+		return u if User.hash_password(pass, u.password)==u.password
+		nil
+	end 
 
 end

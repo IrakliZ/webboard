@@ -28,4 +28,23 @@ class UsersController < ApplicationController
   def permitted_params
   	params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+
+  def login 
+      if request.post? 
+        user = User.authenticate(params[:user][:login],
+                                        [:user][:password])
+      if user 
+          session[:user] = user.id 
+          #flash[:notice]  = "Login successful" 
+          redirect_to :controller=>'user', :action=>'home'
+      else 
+          flash[:error] = "Login unsuccessful"
+          redirect_to :controller=>'home'
+      end 
+      end
+  def logout
+    session[:user] = nil
+    #flash[:notice] = 'Logged out'
+    redirect_to :controller => 'home', :action => 'index'
+  end  
 end
