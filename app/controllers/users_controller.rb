@@ -4,8 +4,9 @@ class UsersController < ApplicationController
   end
 
   def create
-  	  	@user = User.new(permitted_params)
+  	@user = User.new(permitted_params)
   	if @user.save
+      sign_in @user
   		flash[:success] = "Welcome to Webboard!"
   		redirect_to @user
   	else

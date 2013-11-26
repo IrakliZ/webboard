@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="signin-form">
+		<h2>Sign In</h2>
+		<%= form_for(:session, url: sessions_path) do |u| %>
+			<%= render 'shared/error_messages' %>
+
+			<%= u.text_field :email, :placeholder => 'Email', :id => "form-name", :class => "form-control", :autofocus => true, :required => true %>
+
+			<%= u.password_field :password, :placeholder => 'Password', :id => "form-confirm", :class => "form-control", :required => true %>
+
+			<%= u.submit "Sign In", class: "btn btn-lg btn-primary" %>
+
+		<% end %>
+	</div>
+</div>

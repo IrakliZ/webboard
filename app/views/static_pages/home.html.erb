@@ -1,9 +1,16 @@
+<% provide(:title, 'Home') %>
+
 <div class="row">
 	<div class="center jumbotron">
 
-		<h1>Welcome to the Webboard</h1>
-		<h4>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</h4>
-
-		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+		<div class="row">
+			<div class="col-lg-7">
+				<h1>Welcome to Webboard</h1>
+				<h4>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</h4>
+			</div>
+			<div class="col-lg-4 col-lg-offset-1">
+				<%= render 'sessions/new' %>
+			</div>
+		</div>
 	</div>
 </div>
