@@ -19,6 +19,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if current_user != @user
+      flash[:danger] = "Nice try nub"
+      redirect_to @user
+    end
   end
 
   def update
