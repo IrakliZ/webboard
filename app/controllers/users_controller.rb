@@ -20,18 +20,23 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     if current_user != @user
-      flash[:danger] = "Nice try nub"
+      flash[:danger] = "Access denied"
       redirect_to @user
     end
   end
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(permitted_params)
-      flash[:success] = "User information updated"
+    if current_user != @user
+      flash[:danger] = "Access denied"
       redirect_to @user
     else
-      render 'edit'
+      if @user.update_attributes(permitted_params)
+        flash[:success] = "User information updated"
+        redirect_to @user
+      else
+        render 'edit'
+      end
     end
   end
 
