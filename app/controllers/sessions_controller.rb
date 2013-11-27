@@ -1,3 +1,9 @@
+## 
+# this is a class represents 
+
+#
+
+
 class SessionsController < ApplicationController
 
 	def new
