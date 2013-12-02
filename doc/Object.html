@@ -86,6 +86,8 @@
     
     <li><a href="#method-i-page_title">#page_title</a>
     
+    <li><a href="#method-i-sign_in">#sign_in</a>
+    
   </ul>
 </nav>
 
@@ -98,8 +100,6 @@
   <ul>
   
     <li class="file"><a href="./Gemfile.html">Gemfile</a>
-  
-    <li class="file"><a href="./README_rdoc.html">README</a>
   
     <li class="file"><a href="./Rakefile.html">Rakefile</a>
   
@@ -234,6 +234,39 @@
 
         
       </div><!-- page_title-method -->
+
+    
+      <div id="method-i-sign_in" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sign_in</span><span
+            class="method-args">(user, options={})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sign_in-source">
+            <pre><span class="ruby-comment"># File spec/support/utilities.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sign_in</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">visit</span> <span class="ruby-identifier">root_path</span>
+  <span class="ruby-identifier">fill_in</span> <span class="ruby-string">&quot;Email&quot;</span>,    <span class="ruby-identifier">with</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>
+  <span class="ruby-identifier">fill_in</span> <span class="ruby-string">&quot;Password&quot;</span>, <span class="ruby-identifier">with</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">password</span>
+  <span class="ruby-identifier">click_button</span> <span class="ruby-string">&quot;Sign In&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sign_in-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sign_in-method -->
 
     
     </section><!-- public-instance-method-details -->
