@@ -19,3 +19,11 @@ end
 Then(/^I should see a white board$/) do
   pending # express the regexp above with the code you wish you had
 end
+
+Given(/^(?:|I )am on the (.+)$/) do |page_name|
+  visit path_to(page_name)
+end
+
+When(/^(?:|I )click (.+)$/) do |page_name|
+  visit path_to(page_name)
+end
