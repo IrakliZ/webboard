@@ -24,6 +24,6 @@ Given(/^(?:|I )am on the (.+)$/) do |page_name|
   visit path_to(page_name)
 end
 
-When(/^(?:|I )click (.+)$/) do |page_name|
+When(/^(?:|I )go to (.+)$/) do |page_name|
   visit path_to(page_name)
 end

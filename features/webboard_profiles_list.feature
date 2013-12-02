@@ -17,7 +17,7 @@ Feature: Showcase the simplest possible Cucumber scenario
 		
 	Scenario: sign-in
 		Given I am on the homepage
-		When I click sign-up
+		When I go to sign-up
 		And I enter the name "Mr. Person"
 		And I enter the email "person@gmail.com"
 		And I enter the password "12345"
