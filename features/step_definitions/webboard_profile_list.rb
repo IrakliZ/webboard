@@ -27,3 +27,7 @@ end
 When(/^(?:|I )go to (.+)$/) do |page_name|
   visit path_to(page_name)
 end
+
+When(/^(?:|I )enter the (.+) "(.+)"$/) do |field, value|
+  fill_in("form-#{field}", :with =>value)
+end
