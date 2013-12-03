@@ -31,3 +31,13 @@ end
 When(/^(?:|I )enter the (.+) "(.+)"$/) do |field, value|
   fill_in("form-#{field}", :with =>value)
 end
+
+When(/^(?:|I )press "(.*)"$/) do |button|
+  click_button(button)
+end
+
+Then(/^I should be on profile "(.*)"$/) do |user_name|
+  current_path = URI.parse(current_url).path
+  p current_path
+  assert current_path =~ /users\/\d+/
+end
