@@ -20,6 +20,12 @@ Then(/^I should see a white board$/) do
   pending # express the regexp above with the code you wish you had
 end
 
+Given(/^the following users are in the database:/) do |users_table|
+  users_table.hashes.each do |user|
+    User.create!(user)
+  end
+end
+
 Given(/^(?:|I )am on the (.+)$/) do |page_name|
   visit path_to(page_name)
 end
@@ -39,6 +45,7 @@ end
 
 Then(/^I should be on profile "(.*)"$/) do |user_name|
   current_path = URI.parse(current_url).path
-  p current_path
+  #p current_path
   assert current_path =~ /users\/\d+/
+  assert have_title(user_name)
 end

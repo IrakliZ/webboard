@@ -15,7 +15,7 @@ Feature: Showcase the simplest possible Cucumber scenario
 #		When I click new board 
 #		Then I should see a white board 
 		
-	Scenario: sign-in
+	Scenario: sign-up
 		Given I am on the homepage
 		When I go to sign-up
 		And I enter the Name "Mr. Person"
@@ -24,5 +24,16 @@ Feature: Showcase the simplest possible Cucumber scenario
 		And I enter the Confirmation "12345678"
 		And I press "Create Account"
 		Then I should be on profile "Mr. Person"
-
-	
+		
+	Scenario: sign-in
+	    Given the following users are in the database:
+	    | name           | email               | password          | password_confirmation |
+	    | Mr. Person     | person@gmail.com    | 12345678          | 12345678              |
+	    | Lady Ladyton   | pumpiron@gmail.com  | nailsforbreakfast | nailsforbreakfast     |
+	    | Irakli Z       | dovahkiin@yahoo.com | praiseTalos9      | praiseTalos9          |
+	    
+	    And I am on the homepage
+	    And I enter the Email "Lady Ladyton"
+	    And I enter the Password "nailsforbreakfast"
+	    And I press "Sign In"
+	    Then I should be on profile "Lady Ladyton"
