@@ -32,4 +32,13 @@ Background: adding three users
 		And I click link "Sign out"
 		Then I should be on page homepage
 		
+	Scenario: edit-information
+		Given I am on the homepage
+		And I enter profile "Irakli Z" with email "dovahkiin@yahoo.com" with password "praiseTalos9"
+		And I click link "Settings"
+		And I enter the Name "Dragonborn"
+		And I enter the Password "12345678"
+		And I enter the Confirmation "12345678"
+		And I press "Update"
+		Then I should be on profile "Dragonborn"
 		
