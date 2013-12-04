@@ -51,9 +51,10 @@ window.onload = function() {
 		// var segmentCount = path.segments.length;
 		// When the mouse is released, simplify it:
 
-		path.simplify(10);
+		path.simplify(1000);
 		var y = JSON.stringify(Base.serialize(path.segments));
-		//paper.view.draw();
+		// paper.view.draw();
+		alert(project.exportSVG())
 		// textItem.content = y
 
 		// Select the path, so we can see its segments:
