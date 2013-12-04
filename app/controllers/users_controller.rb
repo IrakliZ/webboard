@@ -46,6 +46,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @boards = @user.boards.paginate(page: params[:page])
   end
 
   private
