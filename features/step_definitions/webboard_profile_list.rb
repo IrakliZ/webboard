@@ -29,7 +29,8 @@ When(/^(?:|I )go to (.+)$/) do |page_name|
 end
 
 When(/^(?:|I )enter the (.+) "(.+)"$/) do |field, value|
-  fill_in("form-#{field}", :with =>value)
+  #fill_in("form-#{field}", :with =>value)
+  fill_in("#{field}", :with =>"#{value}")
 end
 
 When(/^(?:|I )press "(.*)"$/) do |button|

@@ -18,10 +18,10 @@ Feature: Showcase the simplest possible Cucumber scenario
 	Scenario: sign-in
 		Given I am on the homepage
 		When I go to sign-up
-		And I enter the name "Mr. Person"
-		And I enter the email "person@gmail.com"
-		And I enter the password "12345678"
-		And I enter the confirm "12345678"
+		And I enter the Name "Mr. Person"
+		And I enter the Email "person@gmail.com"
+		And I enter the Password "12345678"
+		And I enter the Confirmation "12345678"
 		And I press "Create Account"
 		Then I should be on profile "Mr. Person"
 
