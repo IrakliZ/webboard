@@ -1,6 +1,9 @@
 # encoding: utf-8 
 #Add sign-up, edit user, redirecting webpage 
-Feature: Showcase the simplest possible Cucumber scenario 
+Feature: User basic sign-in
+	As a new user
+	So that I can have my own profile
+	I want set up a profile to my email and password 
 Background: adding three users
 	Given the following users are in the database:
 	| name           | email               | password          | password_confirmation |
@@ -41,4 +44,5 @@ Background: adding three users
 		And I enter the Confirmation "12345678"
 		And I press "Update"
 		Then I should be on profile "Dragonborn"
-		
+	
+	Scenario: Cannot edit when signed off
