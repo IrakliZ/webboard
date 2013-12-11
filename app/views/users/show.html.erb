@@ -1,5 +1,6 @@
 <% provide(:title, @user.name) %>
 <h1><%= @user.name %></h1>
+<%= image_tag "TestAvatar.jpg" %>
 <div class="row">
 	<% if @user.boards.any? %>
 		<h3>Boards (<%= @user.boards.count %>)</h3>
