@@ -1,5 +1,13 @@
-class SessionsController < ApplicationController
+## 
+# this is a class represents 
 
+#
+
+class SessionsController < ApplicationController
+## 
+# this is a class represents 
+
+#
 	def new
 	end
 
