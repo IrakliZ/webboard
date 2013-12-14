@@ -1,11 +1,18 @@
 <body>
+    <%= javascript_include_tag 'paperjs/paper-full.min.js' %>
+    <%= javascript_include_tag 'test.js' %>
 	<form name="color" action="" method="GET">
 		Color: <input type="text" name="colorInput">
-		<input type="button" name="colorButton" value="Change Color" onclick="changeColor(this.form)" class: "btn btn-large btn-primary">
+		<input type="button" name="colorButton" value="Change Color" onclick="changeColor(this.form)" class="btn btn-large btn-primary">
 	</form>
 	<div class="row">
 		<div class="panel panel-default">
 			<canvas id="canvas1" resize></canvas>
+		</div>
+	</div>
+	<div class="row">
+		<div class="panel panel-default">
+			<svg id="canvas2" resize></svg>
 		</div>
 	</div>
 </body>

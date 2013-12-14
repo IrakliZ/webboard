@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-lg-4">
+    <%= form_for([@user, @user.boards.build]) do |f| %>
+        <div class="new-board-form">
+            <%= f.text_field :title, placeholder: "Title of the board", :class => "form-control", :autofocus => true, :required => true %>
+        </div>
+        <%= f.submit "Create new board", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
