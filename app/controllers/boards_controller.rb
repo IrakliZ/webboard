@@ -11,7 +11,7 @@ class BoardsController < ApplicationController
     @board = @user.boards.find(params[:id])
     puts '@@@@@@@@@@@@@@@@@@@@@@@@@@'
     puts params[:board]
-    @board.update_column(:content, params[:board])
+    @board.update_column(:content, params[:board].as_json)
     respond_to do |format|
       format.json { render json: @board }
     end
@@ -33,10 +33,13 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @test = ''
     @user = User.find(params[:user_id])
     if current_user?(@user)
       @board = @user.boards.find(params[:id])
+      @content = @board.content
+      if @content
+        @content = @board.content.gsub('\\', '').gsub(/.$/, '').gsub(/^./, '')
+      end
     else
       flash[:danger] = 'Access denied'
       redirect_to @user

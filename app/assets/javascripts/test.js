@@ -17,6 +17,7 @@ function alertProject() {
 
 paper.install(window)
 window.onload = function() {
+
 	canvas = document.getElementById('canvas1');
 	// Create an empty project and a view for the canvas:
 	paper.setup(canvas);
@@ -61,4 +62,6 @@ window.onload = function() {
 
 
 	}
+
+    load();
 }
