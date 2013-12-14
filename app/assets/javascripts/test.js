@@ -4,9 +4,15 @@ var canvas = 0;
 var path = 0;
 var textItem = 0;
 var color = 'black';
+var p;
 
 function changeColor(c) {
 	color = c.colorInput.value;
+}
+
+function alertProject() {
+    return project.exportJSON();
+//    alert(project.exportJSON());
 }
 
 paper.install(window)
@@ -18,7 +24,7 @@ window.onload = function() {
 	textItem = new PointText({
 		//content: 'Click and drag to draw a line.',
 		point: new Point(20, 30),
-		fillColor: 'black',
+		fillColor: 'black'
 	});
 
 	tool.onMouseDown = function(event) {
@@ -31,8 +37,6 @@ window.onload = function() {
 		path = new Path({
 			segments: [event.point],
 			strokeColor: color//,
-			// Select the path, so we can see its segment points:
-			//fullySelected: true
 		});
 	}
 
@@ -40,10 +44,6 @@ window.onload = function() {
 	// at the position of the mouse:
 	tool.onMouseDrag = function(event) {
 		path.add(event.point);
-
-		// Update the content of the text item to show how many
-		// segments it has:
-		//textItem.content = 'Segment count: ' + path.segments.length;
 	}
 
 	// When the mouse is released, we simplify the path:
@@ -51,18 +51,14 @@ window.onload = function() {
 		// var segmentCount = path.segments.length;
 		// When the mouse is released, simplify it:
 
-		path.simplify(1000);
+		path.simplify(10);
 		var y = JSON.stringify(Base.serialize(path.segments));
 		// paper.view.draw();
-		alert(project.exportSVG())
+		// alert(project.exportJSON())
+		//document.getElementById('canvas2').appendChild(project.exportSVG());
 		// textItem.content = y
+        p = project.exportJSON();
 
-		// Select the path, so we can see its segments:
-		// path.fullySelected = true;
 
-		// var newSegmentCount = path.segments.length;
-		// var difference = segmentCount - newSegmentCount;
-		// var percentage = 100 - Math.round(newSegmentCount / segmentCount * 100);
-		//textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
 	}
 }

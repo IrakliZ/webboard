@@ -1,5 +1,9 @@
 <li>
-  <span class="content"><%= board.title %></span>
+  <% if current_user?(@user) %>
+    <%= link_to board.title, [@user, board] %>
+  <% else %>
+    <%= board.title %>
+  <% end %>
   <span class="timestamp">
     Created <%= time_ago_in_words(board.created_at) %> ago.
   </span>

@@ -19,7 +19,11 @@ module SessionsHelper
 	def current_user
 		user_token = User.encrypt(cookies[:user_token])
 		@current_user ||= User.find_by(user_token: user_token)
-	end
+  end
+
+  def current_user?(user)
+    user == current_user
+  end
 
 	def signed_in?
 		!current_user.nil?

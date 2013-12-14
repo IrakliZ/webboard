@@ -1,5 +1,8 @@
 <% provide(:title, @user.name) %>
 <h1><%= @user.name %></h1>
+<% if current_user?(@user) %>
+    <%= render 'boards/new' %>
+<% end %>
 <div class="row">
 	<% if @user.boards.any? %>
 		<h3>Boards (<%= @user.boards.count %>)</h3>
