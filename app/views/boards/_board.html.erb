@@ -1,11 +1,15 @@
-<li>
-  <% if current_user?(@user) %>
-    <%= link_to board.title, [@user, board] %>
-  <% else %>
-    <%= board.title %>
-  <% end %>
-  <span class="timestamp">
-    Created <%= time_ago_in_words(board.created_at) %> ago.
-  </span>
 
-</li>
+  <% if current_user?(@user) %>
+    <%= link_to [@user, board], class: 'list-group-item' do%>
+      <%= board.title %>
+      <span class="badge">Created <%= time_ago_in_words(board.created_at) %></span>
+    <% end %>
+  <% else %>
+    <li class="list-group-item">
+      <%= board.title %>
+      <span class="badge">
+        Created <%= time_ago_in_words(board.created_at) %> ago.
+      </span>
+    </li>
+  <% end %>
+

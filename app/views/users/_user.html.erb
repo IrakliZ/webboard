@@ -1,3 +1,4 @@
-<li>
-  <%= link_to user.name, user %>
-</li>
+<%= link_to user, class: 'list-group-item' do%>
+    <%= user.name %>
+    <span class="badge">Member for <%= time_ago_in_words(user.created_at) %></span>
+<% end %>

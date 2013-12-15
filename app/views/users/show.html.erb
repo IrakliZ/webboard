@@ -6,7 +6,7 @@
 <div class="row">
 	<% if @user.boards.any? %>
 		<h3>Boards (<%= @user.boards.count %>)</h3>
-		<ol class="boards">
+		<ol class="list-group">
 			<%= render @boards %>
 		</ol>
 		<%= will_paginate @boards %>

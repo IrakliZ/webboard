@@ -65,6 +65,11 @@ h1 {
   text-align: center;
 }
 
+a.list-group-item:hover,
+a.list-group-item:focus {
+  background-color: rgba(75, 170, 255, 0.69);
+}
+
 .panel {
 	margin-top: 20px;
   // background-color: rgba(50, 50, 50, 0.95);
