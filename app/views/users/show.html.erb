@@ -6,9 +6,11 @@
 <div class="row">
 	<% if @user.boards.any? %>
 		<h3>Boards (<%= @user.boards.count %>)</h3>
+        <%= will_paginate @boards, renderer: BootstrapPagination::Rails %>
 		<ol class="list-group">
 			<%= render @boards %>
 		</ol>
-		<%= will_paginate @boards %>
+		<%= will_paginate @boards, renderer: BootstrapPagination::Rails %>
 	<% end %>
+
 </div>

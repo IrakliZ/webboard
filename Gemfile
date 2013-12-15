@@ -32,7 +32,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 # Required to list only some number of users or boards
-gem 'will_paginate', '3.0.4'
+gem 'will_paginate-bootstrap'
 gem 'bootstrap-will_paginate', '0.0.9'
 
 gem 'faker', '1.1.2'

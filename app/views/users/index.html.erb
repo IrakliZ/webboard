@@ -1,10 +1,10 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
-<%= will_paginate %>
+<%= will_paginate @users, renderer: BootstrapPagination::Rails%>
 
 <div class="list-group">
   <%= render @users %>
 </div>
 
-<%= will_paginate %>
+<%= will_paginate @users, renderer: BootstrapPagination::Rails%>

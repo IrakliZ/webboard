@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  require "will_paginate-bootstrap"
+
   def new
   	@user = User.new
   end
