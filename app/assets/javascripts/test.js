@@ -50,17 +50,8 @@ window.onload = function() {
 	// When the mouse is released, we simplify the path:
 	tool.onMouseUp = function(event) {
 		// var segmentCount = path.segments.length;
-		// When the mouse is released, simplify it:
-
 		path.simplify(10);
-		var y = JSON.stringify(Base.serialize(path.segments));
 		// paper.view.draw();
-		// alert(project.exportJSON())
-		//document.getElementById('canvas2').appendChild(project.exportSVG());
-		// textItem.content = y
-        p = project.exportJSON();
-
-
 	}
 
     load();

@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
   respond_to :json
 
   def index
-
+    redirect_to User.find(params[:user_id])
   end
 
   def update

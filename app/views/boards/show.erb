@@ -12,7 +12,7 @@
       };
 
   $("#save_board").click(function(){
-      var hash = p;
+      var hash = project.exportJSON();
       var path = "<%=j user_board_url %>";;
       $.ajax({
           type: "PUT",
