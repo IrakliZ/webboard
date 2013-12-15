@@ -18,7 +18,7 @@ function alertProject() {
 paper.install(window)
 window.onload = function() {
 
-	canvas = document.getElementById('canvas1');
+	canvas = document.getElementById('board-canvas');
 	// Create an empty project and a view for the canvas:
 	paper.setup(canvas);
 	var tool = new Tool();
@@ -51,7 +51,7 @@ window.onload = function() {
 	tool.onMouseUp = function(event) {
 		// var segmentCount = path.segments.length;
 		path.simplify(10);
-		// paper.view.draw();
+		paper.view.draw();
 	}
 
     load();

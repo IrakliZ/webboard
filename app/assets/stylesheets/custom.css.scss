@@ -22,6 +22,20 @@ body {
   color: #ffffff;
 }
 
+.canvas-panel {
+  background-color: #ffffff;
+}
+
+.canvas-heading {
+  background-color: #d3d3d3;
+  width: 100%;
+}
+
+.btn#save-board {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
 .panel-default > .panel-heading {
 	background-color: #777;
 	font-size: 1.2em;

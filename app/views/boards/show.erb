@@ -3,13 +3,10 @@
 <body>
 <%= javascript_include_tag 'paperjs/paper-full.min.js' %>
 
-
-<input type="button" id="save_board" value="save board" class="btn">
-
 <script>
-      function load() {
-          project.importJSON(jQuery.parseJSON(("<%=j @content %>").replace(/&quot;/g, '"')));
-      };
+  function load() {
+      project.importJSON(jQuery.parseJSON(("<%=j @content %>").replace(/&quot;/g, '"')));
+  };
 
   $("#save_board").click(function(){
       var hash = project.exportJSON();
@@ -27,15 +24,25 @@
   });
 </script>
 <h3 class="center"><%= @board.title %></h3>
-<form name="color" action="" method="GET">
-  Color: <input type="text" name="colorInput">
-  <input type="button" name="colorButton" value="Change Color" onclick="changeColor(this.form)" class="btn btn-large btn-primary">
-</form>
+<!--<form name="color" action="" method="GET">-->
+  <!--Color: <input type="text" name="colorInput">-->
+  <!--<input type="button" name="colorButton" value="Change Color" onclick="changeColor(this.form)" class="btn btn-large btn-primary">-->
+<!--</form>-->
 <div class="row">
-  <div class="panel panel-default" style="overflow: scroll;">
-    <canvas id="canvas1" width="1200" height="700"></canvas>
+  <div class="canvas-heading">
+    <canvas id="canvas-toolbar" resize></canvas>
   </div>
 </div>
+<div class="row">
+  <div class="canvas-panel" style="overflow: auto;">
+    <div class="canvas-body">
+      <canvas id="board-canvas" width="1200" height="700"></canvas>
+    </div>
+  </div>
+</div>
+
+<input type="button" id="save-board" value="Save" class="btn btn-primary">
+
 <div id="debug">
 
 </div>
