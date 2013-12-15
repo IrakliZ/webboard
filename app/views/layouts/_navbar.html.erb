@@ -10,6 +10,7 @@
 				</button>
 			</div>
 			<div class="collapse navbar-collapse" id="collapse">
+              <%= link_to 'webboard', root_path, id: 'navbar-logo' %>
 				<ul class="nav navbar-nav pull-right">
 						<% if signed_in? %>
 							<li id="account-menu" class="dropdown">
