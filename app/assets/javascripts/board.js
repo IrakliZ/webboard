@@ -7,7 +7,7 @@ var color = 'black';
 var p;
 
 function changeColor(c) {
-	color = c.colorInput.value;
+	color = c.toHex();
 }
 
 function alertProject() {
@@ -17,7 +17,6 @@ function alertProject() {
 
 paper.install(window)
 window.onload = function() {
-
 	canvas = document.getElementById('board-canvas');
 	// Create an empty project and a view for the canvas:
 	paper.setup(canvas);
@@ -54,6 +53,5 @@ window.onload = function() {
 		//paper.view.draw();
         save();
 	}
-
     load();
 }
