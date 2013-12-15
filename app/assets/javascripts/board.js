@@ -51,7 +51,8 @@ window.onload = function() {
 	tool.onMouseUp = function(event) {
 		// var segmentCount = path.segments.length;
 		path.simplify(10);
-		paper.view.draw();
+		//paper.view.draw();
+        save();
 	}
 
     load();
