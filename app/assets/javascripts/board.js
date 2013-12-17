@@ -2,7 +2,6 @@
 var canvas = 0;
 // Create an empty project and a view for the canvas:
 var path = 0;
-var textItem = 0;
 var color = 'black';
 var p;
 
@@ -10,9 +9,8 @@ function changeColor(c) {
 	color = c.toHex();
 }
 
-function alertProject() {
-    return project.exportJSON();
-//    alert(project.exportJSON());
+function clearCanvas() {
+    project.activeLayer.removeChildren();
 }
 
 paper.install(window)
@@ -21,11 +19,6 @@ window.onload = function() {
 	// Create an empty project and a view for the canvas:
 	paper.setup(canvas);
 	var tool = new Tool();
-	textItem = new PointText({
-		//content: 'Click and drag to draw a line.',
-		point: new Point(20, 30),
-		fillColor: 'black'
-	});
 
 	tool.onMouseDown = function(event) {
 		// If we produced a path before, deselect it:
@@ -36,8 +29,9 @@ window.onload = function() {
 		// Create a new path and set its stroke color to black:
 		path = new Path({
 			segments: [event.point],
-			strokeColor: color//,
+			strokeColor: color
 		});
+        path.strokeWidth = 10;
 	}
 
 	// While the user drags the mouse, points are added to the path
@@ -49,7 +43,7 @@ window.onload = function() {
 	// When the mouse is released, we simplify the path:
 	tool.onMouseUp = function(event) {
 		// var segmentCount = path.segments.length;
-		path.simplify(1000);
+		path.simplify(5);
 		//paper.view.draw();
         save();
 	}

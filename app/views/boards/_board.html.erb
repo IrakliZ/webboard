@@ -2,13 +2,13 @@
   <% if current_user?(@user) %>
     <%= link_to [@user, board], class: 'list-group-item' do%>
       <%= board.title %>
-      <span class="badge">Created <%= time_ago_in_words(board.created_at) %></span>
+      <span class="badge">Created <%= time_ago_in_words(board.created_at) %> ago</span>
     <% end %>
   <% else %>
     <li class="list-group-item">
       <%= board.title %>
       <span class="badge">
-        Created <%= time_ago_in_words(board.created_at) %> ago.
+        Created <%= time_ago_in_words(board.created_at) %> ago
       </span>
     </li>
   <% end %>
