@@ -1,18 +1,20 @@
 <% provide(:title, @board.title) %>
 
 <body>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <%= javascript_include_tag 'paperjs/paper-full.min.js' %>
 <%= javascript_include_tag 'spectrum.js' %>
 
 <h3 class="center"><%= @board.title %></h3>
-<!--<form name="color" action="" method="GET">-->
-  <!--Color: <input type="text" name="colorInput">-->
-  <!--<input type="button" name="colorButton" value="Change Color" onclick="changeColor(this.form)" class="btn btn-large btn-primary">-->
-<!--</form>-->
 
 <div class="row">
   <div class="canvas-heading">
-    <input type='text' id="color-change" />
+    <div class="toolbar-item">
+        <input type="text" class="toolbar-item" id="color-change" />
+    </div>
+    <input type="button" id="clear-canvas" class="btn btn-danger toolbar-item" value="Clear" data-placement="top" data-content="Not saved automatically">
+    <div id="slider" class="toolbar-item"></div>
   </div>
 </div>
 <div class="row">
@@ -32,7 +34,7 @@
 
     function save() {
         var hash = project.exportJSON();
-        var path = "<%=j user_board_url %>";;
+        var path = "<%=j user_board_url %>";
         $.ajax({
             type: "PUT",
             url: path,
@@ -52,6 +54,22 @@
     $("#color-change").spectrum({
         change: function(c) {
             changeColor(c);
+        }
+    });
+
+    $(function() {
+        $( "#slider" ).slider({ min: 1, max: 20});
+    });
+
+    $("#clear-canvas").click(function() {
+       clearCanvas();
+    });
+
+    $("#clear-canvas").popover();
+
+    $("body").click(function(e) {
+        if(!$("#clear-canvas").is(e.target)){
+            $("#clear-canvas").popover("hide");
         }
     });
 </script>

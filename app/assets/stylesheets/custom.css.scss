@@ -65,6 +65,21 @@ h1 {
   text-align: center;
 }
 
+.toolbar-item {
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+#slider {
+  width: 100px;
+}
+
+#clear-canvas {
+  width: 60px;
+}
+
 a.list-group-item:hover,
 a.list-group-item:focus {
   background-color: rgba(75, 170, 255, 0.69);
