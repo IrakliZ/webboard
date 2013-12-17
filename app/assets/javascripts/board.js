@@ -45,7 +45,7 @@ window.onload = function() {
 		// var segmentCount = path.segments.length;
 		path.simplify(5);
 		//paper.view.draw();
-        save();
+        //save();
 	}
     load();
 }
