@@ -1,7 +1,9 @@
 
   <% if current_user?(@user) %>
     <%= link_to [@user, board], class: 'list-group-item' do%>
-      <%= board.title %>
+      <span class="list-user">
+        <%= board.title %>
+      </span>
       <span class="badge">Created <%= time_ago_in_words(board.created_at) %> ago</span>
     <% end %>
   <% else %>
