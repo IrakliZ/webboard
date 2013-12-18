@@ -43,7 +43,7 @@ window.onload = function() {
 	// When the mouse is released, we simplify the path:
 	tool.onMouseUp = function(event) {
 		// var segmentCount = path.segments.length;
-		path.simplify(20);
+		path.simplify(3);
 		//paper.view.draw();
         //save();
 	}
