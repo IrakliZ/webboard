@@ -87,6 +87,13 @@ h1 {
   width: 60px;
 }
 
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #AAA;
+}
+
 li.list-group-item,
 a.list-group-item {
   background-color: #222222;
