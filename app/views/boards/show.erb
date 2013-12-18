@@ -33,9 +33,9 @@
     };
 
     function save() {
-        alert("test");
         var hash = project.exportJSON();
         var path = "<%=j user_board_url %>";
+        alert(path);
         $.ajax({
             type: "PUT",
             url: path,
