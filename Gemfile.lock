@@ -191,6 +191,7 @@ DEPENDENCIES
   pg
   rails (= 4.0.1)
   rails_12factor
+  rdoc
   rspec-rails (= 2.13.1)
   sass-rails (~> 4.0.0)
   sdoc

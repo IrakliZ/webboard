@@ -11,10 +11,14 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 
+	##
+	# Craetes a secure random for saving users as cookies on the browser for login purposes
 	def User.new_user_token
 		SecureRandom.urlsafe_base64
 	end
 
+	##
+	# Encrypts a given token to an SHA1
 	def User.encrypt(token)
 		Digest::SHA1.hexdigest(token.to_s)
 	end
