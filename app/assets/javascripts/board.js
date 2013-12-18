@@ -31,7 +31,7 @@ window.onload = function() {
 			segments: [event.point],
 			strokeColor: color
 		});
-        path.strokeWidth = 10;
+        path.strokeWidth = 3;
 	}
 
 	// While the user drags the mouse, points are added to the path
@@ -43,7 +43,7 @@ window.onload = function() {
 	// When the mouse is released, we simplify the path:
 	tool.onMouseUp = function(event) {
 		// var segmentCount = path.segments.length;
-		path.simplify(5);
+		path.simplify(20);
 		//paper.view.draw();
         //save();
 	}

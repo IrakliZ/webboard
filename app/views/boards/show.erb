@@ -35,7 +35,7 @@
     function save() {
         var hash = project.exportJSON();
         var path = "<%=j user_board_url %>";
-        alert(path);
+        alert(hash);
         $.ajax({
             type: "PUT",
             url: path,
