@@ -33,6 +33,7 @@
     };
 
     function save() {
+        alert("test");
         var hash = project.exportJSON();
         var path = "<%=j user_board_url %>";
         $.ajax({
@@ -40,7 +41,7 @@
             url: path,
             data: {board: JSON.stringify(hash)},
             dataType: 'json',
-            success: function() {  },
+            success: function() { alert("Successfuly saved"); },
             error: function(status, error) {
                 $("#debug").append($(status.responseText));
             }
