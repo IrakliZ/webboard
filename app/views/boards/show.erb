@@ -43,7 +43,7 @@
             dataType: 'json',
             success: function() { alert("Successfuly saved"); },
             error: function(status, error) {
-                alert("Error");
+                alert(status.responseText);
                 $("#debug").append($(status.responseText));
             }
         });
