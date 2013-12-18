@@ -6,7 +6,9 @@
     <% end %>
   <% else %>
     <li class="list-group-item">
-      <%= board.title %>
+      <span class="list-user">
+        <%= board.title %>
+      </span>
       <span class="badge">
         Created <%= time_ago_in_words(board.created_at) %> ago
       </span>

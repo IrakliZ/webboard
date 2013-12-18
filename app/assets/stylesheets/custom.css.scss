@@ -87,9 +87,20 @@ h1 {
   width: 60px;
 }
 
+li.list-group-item,
+a.list-group-item {
+  background-color: #222222;
+  border-color: #111111;
+}
+
+li.list-group-item > .list-user,
+a.list-group-item > .list-user {
+  color: #CCC;
+}
+
 a.list-group-item:hover,
 a.list-group-item:focus {
-  background-color: rgba(75, 170, 255, 0.69);
+  background-color: #080808;
 }
 
 .panel {
