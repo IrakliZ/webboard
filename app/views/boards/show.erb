@@ -14,7 +14,6 @@
         <input type="text" class="toolbar-item" id="color-change" />
     </div>
     <input type="button" id="clear-canvas" class="btn btn-danger toolbar-item" value="Clear" data-placement="top" data-content="Not saved automatically">
-    <div id="slider" class="toolbar-item"></div>
   </div>
 </div>
 <div class="row">
@@ -35,7 +34,6 @@
     function save() {
         var hash = project.exportJSON();
         var path = "<%=j user_board_url %>";
-        alert(hash);
         $.ajax({
             type: "PUT",
             url: path,
@@ -43,7 +41,6 @@
             dataType: 'json',
             success: function() { alert("Successfuly saved"); },
             error: function(status, error) {
-                alert(status.responseText);
                 $("#debug").append($(status.responseText));
             }
         });
